@@ -11,20 +11,18 @@ class SongList extends Component {
 
     if (!songs.length) return <div>No songs yet! Add one now.</div>;
 
-    return (
-      <ul>
-        {songs.map(({ title, id }) => (
-          <li key={id}>{title}</li>
-        ))}
-      </ul>
-    );
+    return songs.map(({ title, id }) => (
+      <li className="collection-item" key={id}>
+        {title}
+      </li>
+    ));
   }
 
   render() {
     return (
       <div>
         <h2>My Songs:</h2>
-        {this.renderSongs()}
+        <ul className="collection">{this.renderSongs()}</ul>
       </div>
     );
   }

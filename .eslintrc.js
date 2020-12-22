@@ -17,6 +17,7 @@
     rules: {
       'no-console': 'warn',
       'no-unused-vars': 'error',
+      'react/prop-types': 'off',
     },
     env: {
       browser: true,

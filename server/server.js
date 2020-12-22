@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const models = require('./models');
 const expressGraphQL = require('express-graphql');
@@ -8,16 +9,15 @@ const schema = require('./schema/schema');
 const app = express();
 
 // Replace with your mongoLab URI
-const MONGO_URI = '';
-if (!MONGO_URI) {
+if (!process.env.MONGO_URI) {
   throw new Error('You must provide a MongoLab URI');
 }
 
 mongoose.Promise = global.Promise;
-mongoose.connect(MONGO_URI);
+mongoose.connect(process.env.MONGO_URI);
 mongoose.connection
-  .once('open', () => console.log('Connected to MongoLab instance.'))
-  .on('error', (error) => console.log('Error connecting to MongoLab:', error));
+  .once('open', () => console.info('Connected to MongoLab instance.'))
+  .on('error', (error) => console.info('Error connecting to MongoLab:', error));
 
 app.use(bodyParser.json());
 app.use(

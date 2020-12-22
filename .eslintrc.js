@@ -1,7 +1,9 @@
 
   module.exports = {
     root: true,
-    plugins: [],
+    plugins: [
+      'react',
+    ],
     parserOptions: {
       sourceType: 'module',
       ecmaFeatures: {
@@ -10,6 +12,7 @@
     },
     extends: [
       'eslint:recommended',
+      'plugin:react/recommended',
     ],
     rules: {
       'no-console': 'warn',
@@ -21,4 +24,3 @@
       es6: true,
     },
 }
-

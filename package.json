@@ -10,7 +10,8 @@
   "scripts": {
     "dev": "nodemon index.js --ignore client",
     "prettier:check": "prettier --check .",
-    "prettier:write": "prettier --write ."
+    "prettier:write": "prettier --write .",
+    "lint": "eslint ."
   },
   "author": "",
   "license": "ISC",

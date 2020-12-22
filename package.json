@@ -8,7 +8,9 @@
     "url": "https://github.com/StephenGrider/Lyrical-GraphQL"
   },
   "scripts": {
-    "dev": "nodemon index.js --ignore client"
+    "dev": "nodemon index.js --ignore client",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write ."
   },
   "author": "",
   "license": "ISC",
@@ -33,6 +35,7 @@
     "nodemon": "*",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "prettier": "^2.2.1",
     "react": "15.4.2",
     "react-apollo": "^0.9.0",
     "react-dom": "15.4.2",

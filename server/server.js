@@ -16,7 +16,9 @@ if (!process.env.MONGO_URI) {
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGO_URI);
 mongoose.connection
+  /* eslint-disable-next-line no-console */
   .once('open', () => console.info('Connected to MongoLab instance.'))
+  /* eslint-disable-next-line no-console */
   .on('error', (error) => console.info('Error connecting to MongoLab:', error));
 
 app.use(bodyParser.json());

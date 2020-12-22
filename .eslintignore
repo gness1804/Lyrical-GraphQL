@@ -8,5 +8,5 @@ coverage
 # config files
 .eslintrc.js
 # project-specific custom files
-# your project files here...
+webpack.config.js
 

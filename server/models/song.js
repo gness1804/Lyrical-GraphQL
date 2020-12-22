@@ -22,6 +22,8 @@ SongSchema.statics.addLyric = function (id, content) {
     const lyric = new Lyric({ content, song });
     song.lyrics.push(lyric);
     return Promise.all([lyric.save(), song.save()]).then(
+      // TODO: see if "lyric" is actually needed here
+      /* eslint-disable-next-line no-unused-vars */
       ([lyric, song]) => song
     );
   });

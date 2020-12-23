@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
+import { Link } from 'react-router';
 
 class SongCreate extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class SongCreate extends Component {
     e.preventDefault();
 
     const { title } = this.state;
-    const { mutate } = this.props;
+    const { mutate, router } = this.props;
 
     if (!title) {
       alert('Error: song title required!');
@@ -27,11 +28,15 @@ class SongCreate extends Component {
         title,
       },
     });
+
+    // navigate to user to home
+    router.push('/');
   }
 
   render() {
     return (
       <div>
+        <Link to="/">Back Home</Link>
         <h2>Create a New Song</h2>
         <form onSubmit={this.onSubmit.bind(this)}>
           <label htmlFor="song-entry">Song Title:</label>
@@ -41,6 +46,7 @@ class SongCreate extends Component {
             onChange={(e) => this.setState({ title: e.target.value })}
             value={this.state.title}
           />
+          <button type="submit">Submit</button>
         </form>
       </div>
     );

@@ -13,4 +13,5 @@ README.md
 webpack.config.js
 .prettierrc.json
 # project-specific custom files
+client/index.html
 

@@ -6,14 +6,16 @@ import * as mutations from '../mutations';
 
 class SongList extends Component {
   deleteSong(id) {
-    const { mutate } = this.props;
+    const {
+      mutate,
+      data: { refetch },
+    } = this.props;
 
     mutate({
       variables: {
         id,
       },
-      refetchQueries: [{ query: queries.fetchSongs }],
-    });
+    }).then(() => refetch());
   }
 
   renderSongs() {
@@ -36,7 +38,9 @@ class SongList extends Component {
       .map(({ title, id }) => (
         <li className="collection-item" key={id}>
           {title}
-          <button onClick={() => this.deleteSong(id)}>Delete</button>
+          <i className="material-icons" onClick={() => this.deleteSong(id)}>
+            delete
+          </i>
         </li>
       ));
   }

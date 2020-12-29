@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 class SongCreate extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class SongCreate extends Component {
     e.preventDefault();
 
     const { title } = this.state;
-    const { mutate, router } = this.props;
+    const { mutate } = this.props;
 
     if (!title) {
       alert('Error: song title required!');
@@ -27,10 +27,14 @@ class SongCreate extends Component {
       variables: {
         title,
       },
-    });
-
-    // navigate to user to home
-    router.push('/');
+    })
+      .then(() => {
+        // navigate user to home
+        hashHistory.push('/');
+      })
+      .catch((err) => {
+        throw new Error(`Error in submitting new song: ${err}`);
+      });
   }
 
   render() {

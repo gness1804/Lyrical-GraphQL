@@ -2,8 +2,20 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router';
 import * as queries from '../queries';
+import * as mutations from '../mutations';
 
 class SongList extends Component {
+  deleteSong(id) {
+    const { mutate } = this.props;
+
+    mutate({
+      variables: {
+        id,
+      },
+      refetchQueries: [{ query: queries.fetchSongs }],
+    });
+  }
+
   renderSongs() {
     const {
       data: { songs, loading },
@@ -24,6 +36,7 @@ class SongList extends Component {
       .map(({ title, id }) => (
         <li className="collection-item" key={id}>
           {title}
+          <button onClick={() => this.deleteSong(id)}>Delete</button>
         </li>
       ));
   }
@@ -41,4 +54,6 @@ class SongList extends Component {
   }
 }
 
-export default graphql(queries.fetchSongs)(SongList);
+export default graphql(mutations.deleteSong)(
+  graphql(queries.fetchSongs)(SongList)
+);

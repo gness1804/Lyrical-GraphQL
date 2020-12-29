@@ -13,11 +13,19 @@ class SongList extends Component {
 
     if (!songs.length) return <div>No songs yet! Add one now.</div>;
 
-    return songs.map(({ title, id }) => (
-      <li className="collection-item" key={id}>
-        {title}
-      </li>
-    ));
+    const songsCopy = [...songs];
+
+    return songsCopy
+      .sort((a, b) => {
+        if (a.title < b.title) return -1;
+        if (a.title > b.title) return 1;
+        return 0;
+      })
+      .map(({ title, id }) => (
+        <li className="collection-item" key={id}>
+          {title}
+        </li>
+      ));
   }
 
   render() {

@@ -8,3 +8,17 @@ export const fetchSongs = gql`
     }
   }
 `;
+
+export const findSong = gql`
+  query FindSong($id: ID!) {
+    song(id: $id) {
+      title
+      id
+      lyrics {
+        id
+        likes
+        content
+      }
+    }
+  }
+`;

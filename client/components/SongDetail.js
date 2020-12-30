@@ -2,8 +2,9 @@ import React from 'react';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router';
 import { findSong } from '../queries';
+import LyricCreate from '../components/LyricCreate';
 
-const SongDetail = ({ data: { song, loading, error } }) => {
+const SongDetail = ({ data: { song, loading, error }, params: { id } }) => {
   if (error)
     return (
       <div className="error-text">
@@ -21,6 +22,7 @@ const SongDetail = ({ data: { song, loading, error } }) => {
     <div>
       <Link to="/">Back Home</Link>
       <h3>{song.title}</h3>
+      <LyricCreate id={id} />
     </div>
   );
 };

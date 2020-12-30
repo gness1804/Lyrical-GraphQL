@@ -1,5 +1,7 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
+import { Link } from 'react-router';
+
 import { findSong } from '../queries';
 
 const SongDetail = ({ data: { song, loading, error } }) => {
@@ -18,6 +20,7 @@ const SongDetail = ({ data: { song, loading, error } }) => {
 
   return (
     <div>
+      <Link to="/">Back Home</Link>
       <h3>{song.title}</h3>
     </div>
   );

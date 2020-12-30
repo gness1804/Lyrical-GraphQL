@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { Link, hashHistory } from 'react-router';
-import * as queries from '../queries';
+import { fetchSongs } from '../queries';
 import { addSong } from '../mutations';
 
 class SongCreate extends Component {
@@ -28,7 +28,7 @@ class SongCreate extends Component {
       variables: {
         title,
       },
-      refetchQueries: [{ query: queries.fetchSongs }],
+      refetchQueries: [{ query: fetchSongs }],
     })
       .then(() => {
         // navigate user to home

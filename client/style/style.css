@@ -6,3 +6,8 @@
 .material-icons {
   cursor: pointer;
 }
+
+.error-text {
+  color: #f00;
+  font-weight: 600;
+}

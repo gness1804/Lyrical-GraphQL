@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router';
-import * as queries from '../queries';
-import * as mutations from '../mutations';
+import { fetchSongs } from '../queries';
+import { deleteSong } from '../mutations';
 
 class SongList extends Component {
   deleteSong(id) {
@@ -62,6 +62,4 @@ class SongList extends Component {
   }
 }
 
-export default graphql(mutations.deleteSong)(
-  graphql(queries.fetchSongs)(SongList)
-);
+export default graphql(deleteSong)(graphql(fetchSongs)(SongList));

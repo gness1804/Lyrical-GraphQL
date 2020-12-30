@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { Link, hashHistory } from 'react-router';
 import * as queries from '../queries';
-import * as mutations from '../mutations';
+import { addSong } from '../mutations';
 
 class SongCreate extends Component {
   constructor(props) {
@@ -59,4 +59,4 @@ class SongCreate extends Component {
   }
 }
 
-export default graphql(mutations.addSong)(SongCreate);
+export default graphql(addSong)(SongCreate);

@@ -20,8 +20,16 @@ class SongList extends Component {
 
   renderSongs() {
     const {
-      data: { songs, loading },
+      data: { songs, loading, error },
     } = this.props;
+
+    if (error)
+      return (
+        <div className="error-text">
+          <h5>Whoops, there was an error! Something aint right.</h5>
+          {error.message || ''}
+        </div>
+      );
 
     if (loading) return <div>Loading...</div>;
 

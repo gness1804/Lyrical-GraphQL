@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router';
-
 import { findSong } from '../queries';
 
 const SongDetail = ({ data: { song, loading, error } }) => {

@@ -20,7 +20,7 @@ class SongList extends Component {
 
   renderSongs() {
     const {
-      data: { songs, loading, error },
+      data: { songs = [], loading, error },
     } = this.props;
 
     if (error)

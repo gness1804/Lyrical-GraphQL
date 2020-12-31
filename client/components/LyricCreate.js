@@ -40,18 +40,16 @@ class LyricCreate extends Component {
     const { content } = this.state;
 
     return (
-      <div>
-        <form onSubmit={this.onSubmit.bind(this)}>
-          <label htmlFor="lyric-input">Add Lyric</label>
-          <input
-            id="lyric-input"
-            type="text"
-            value={content}
-            onChange={(e) => this.setState({ content: e.target.value })}
-          />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+      <form onSubmit={this.onSubmit.bind(this)}>
+        <label htmlFor="lyric-input">Add Lyric</label>
+        <input
+          id="lyric-input"
+          type="text"
+          value={content}
+          onChange={(e) => this.setState({ content: e.target.value })}
+        />
+        <button type="submit">Submit</button>
+      </form>
     );
   }
 }

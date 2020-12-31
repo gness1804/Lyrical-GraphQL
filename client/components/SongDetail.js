@@ -3,6 +3,7 @@ import { graphql } from 'react-apollo';
 import { Link } from 'react-router';
 import { findSong } from '../queries';
 import LyricCreate from '../components/LyricCreate';
+import LyricList from '../components/LyricList';
 
 const SongDetail = ({ data: { song, loading, error }, params: { id } }) => {
   if (error)
@@ -18,11 +19,14 @@ const SongDetail = ({ data: { song, loading, error }, params: { id } }) => {
 
   if (loading) return <div>Loading...</div>;
 
+  const { title, lyrics } = song;
+
   return (
     <div>
       <Link to="/">Back Home</Link>
-      <h3>{song.title}</h3>
+      <h3>{title}</h3>
       <LyricCreate id={id} />
+      <LyricList lyrics={lyrics} />
     </div>
   );
 };

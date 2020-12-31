@@ -13,7 +13,8 @@
     "prettier:write": "prettier --write .",
     "lint": "eslint .",
     "no-console": "bash ../../githooks/dist/noConsole.sh",
-    "no-dontmerge": "bash ../../githooks/dist/noDontmerge.sh"
+    "no-dontmerge": "bash ../../githooks/dist/noDontmerge.sh",
+    "open": "open http://localhost:3000/ && open http://localhost:3000/graphql"
   },
   "pre-commit": [
     "no-console",

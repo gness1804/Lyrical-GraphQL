@@ -28,3 +28,13 @@ export const deleteSong = gql`
     }
   }
 `;
+
+export const likeLyric = gql`
+  mutation LikeLyric($id: ID!) {
+    likeLyric(id: $id) {
+      id
+      likes
+      content
+    }
+  }
+`;

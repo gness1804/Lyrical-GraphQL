@@ -25,10 +25,13 @@ const LyricList = ({ lyrics = [], songId, mutate }) => {
 
     return lyrics.map(({ content, id, likes }) => (
       <li key={id} className="collection-item">
-        <h4>
-          {content} ({likes})
-        </h4>
-        <button onClick={() => addLike(id)}>Like This</button>
+        <p>{content}</p>
+        <div className="vote-box">
+          <i className="material-icons thumb-up" onClick={() => addLike(id)}>
+            thumb_up
+          </i>
+          {likes}
+        </div>
       </li>
     ));
   };

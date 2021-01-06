@@ -11,3 +11,12 @@
   color: #f00;
   font-weight: 600;
 }
+
+.vote-box {
+  display: flex;
+  align-items: center;
+}
+
+.thumb-up {
+  margin-right: 0.5rem;
+}

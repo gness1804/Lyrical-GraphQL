@@ -5,7 +5,7 @@ import { findSong } from '../queries';
 
 const LyricList = ({ lyrics = [], songId, mutate }) => {
   const renderLyrics = () => {
-    const addLike = (lyricId) => {
+    const addLike = (lyricId, likes) => {
       mutate({
         variables: {
           id: lyricId,
@@ -18,6 +18,14 @@ const LyricList = ({ lyrics = [], songId, mutate }) => {
             },
           },
         ],
+        optimisticResponse: {
+          __typename: 'Mutation',
+          likeLyric: {
+            id: lyricId,
+            __typename: 'LyricType',
+            likes: likes + 1,
+          },
+        },
       });
     };
 
@@ -27,7 +35,10 @@ const LyricList = ({ lyrics = [], songId, mutate }) => {
       <li key={id} className="collection-item">
         <p>{content}</p>
         <div className="vote-box">
-          <i className="material-icons thumb-up" onClick={() => addLike(id)}>
+          <i
+            className="material-icons thumb-up"
+            onClick={() => addLike(id, likes)}
+          >
             thumb_up
           </i>
           {likes}
